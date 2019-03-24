@@ -20,8 +20,7 @@ public class SecondActivity extends Activity {
                 @Override
                 public void onClick(View view)
                 {
-                   Intent i = new Intent(SecondActivity.this,MainActivity.class);
-                   startActivity(i);
+                   finish();
                 }
             });
 

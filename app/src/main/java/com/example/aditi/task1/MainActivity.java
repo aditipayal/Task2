@@ -10,11 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    TextView t1,t2;
+    TextView t1,t2,ed4,ed1;
    Button b1,b2,b3,b4,b5;
-   EditText ed1,ed2,ed3,ed4;
+   EditText ed2,ed3;
+   int num1, num2, num3;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         t1 = (TextView) findViewById(R.id.textView);
@@ -33,41 +34,40 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Toast toast = Toast.makeText(MainActivity.this,"This is a toast mesaage",Toast.LENGTH_SHORT);
-                toast.setMargin(50,50);
+                Toast toast = Toast.makeText(MainActivity.this,"This is a toast mesaage",Toast.LENGTH_LONG);
                 toast.show();
             }
         });
-        ed1= (EditText)findViewById(R.id.editText2);
+        ed1= (TextView) findViewById(R.id.editText2);
         b3 = (Button) findViewById(R.id.button3);
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                String name = ed1.getText().toString();
+                ed1.setText("Text changed Successfully");
             }
         });
         ed2 = (EditText) findViewById(R.id.editText10);
         ed3 = (EditText) findViewById(R.id.editText11);
-        ed4 = (EditText) findViewById(R.id.editText12);
-        final int mnum1 = ed2.getInputType();
-        final int mnum2 = ed3.getInputType();
-        b4 = (Button) findViewById(R.id.button3);
+        ed4 = (TextView) findViewById(R.id.textView4);
+        b4 = (Button) findViewById(R.id.button4);
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                int res = mnum1+mnum2;
-                ed4.setText(Integer.toString(res));
+                num1 = Integer.parseInt(ed2.getText().toString());
+                num2 = Integer.parseInt(ed3.getText().toString());
+                num3 = num1 + num2;
+                ed4.setText("Sum is :"+String.valueOf(num3));
 
             }
         });
-        b5 = (Button) findViewById(R.id.button3);
+        b5 = (Button) findViewById(R.id.button5);
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                finish();
+
                 System.exit(0);
 
             }
